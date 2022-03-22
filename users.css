@@ -1,0 +1,288 @@
+body{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: "Tahoma", sans-serif;
+  /* font-size: 20px; */
+  background-color: rgb(221, 247, 239);
+}
+.name_table{
+  font-size: 26px;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px auto;
+  color: #16522a;
+}
+table.comicGreen {
+    margin: 5px 5px;
+    border: 2px solid #4F7849;
+    background-color: #EEEEEE;
+    width: 99%;
+    text-align: center;
+    border-collapse: collapse;
+  }
+  table.comicGreen td, table.comicGreen th {
+    border: 1px solid #4F7849;
+    padding: 3px 2px;
+  }
+  table.comicGreen tbody td {
+    text-align: left;
+    font-size: 16px;
+    color: #000000;
+    padding: 3px 2px;
+    padding-left: 7px
+  }
+  table.comicGreen tbody td:last-child{
+    box-sizing: content-box;
+    max-width: 50px;
+  }
+  table.comicGreen tr:nth-child(even) {
+    background: #CEE0CC;
+  }
+  table.comicGreen thead {
+    background: #4F7849;
+    background: -moz-linear-gradient(top, #7b9a76 0%, #60855b 66%, #4F7849 100%);
+    background: -webkit-linear-gradient(top, #7b9a76 0%, #60855b 66%, #4F7849 100%);
+    background: linear-gradient(to bottom, #7b9a76 0%, #60855b 66%, #4F7849 100%);
+    border-bottom: 1px solid #444444;
+  }
+  table.comicGreen thead th {
+    font-size: 15px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+    border-left: 2px solid #D0E4F5;
+  }
+  table.comicGreen thead th:first-child {
+    border-left: none;
+  }
+
+  .btn {
+    font-size: 16px;
+    text-align: center;
+    display: inline-block;
+    font-weight: bold;
+    min-height: 25px;
+    background-color: #7a71ee;
+    cursor: pointer;
+    outline: none;
+    border-radius: 3px;
+    margin: 0 auto;
+    color: #ffffff;
+    transition: 0.2s all;
+  }
+  .add{
+    display: inline-flex;
+    align-items: center;
+    color: #ffffff;
+    background-color: #0fa016;
+    margin: 10px;
+    padding: 0px 10px;
+    min-width: 100px;
+  }
+  .add:hover{
+  background-color: #0c5e10;
+  }
+  .add:active{
+    background-color: #052206;
+  }
+.add .arrow{
+  padding-left: 10px;
+  font-size: 35px;
+  line-height: 1.1;
+  color: aliceblue;
+}
+  .remove{
+    background-color: #fa6a6a;
+    width: 60px;
+    font-size: 14px;
+    font-weight: normal;
+    user-select:none;
+  }
+  .load{
+    margin: 10px;
+    min-width: 20px;
+    padding: 3px 10px;
+  }
+  .insert{
+    margin: 10px;
+    min-width: 20px;
+    padding: 3px 10px;
+  }
+
+ .insert:hover, .load:hover{
+    background-color: #3b2eee; 
+  }
+  .remove:hover{
+    background-color: #ec1a1a;
+  }
+  .remove:active{
+    background-color: #680b0b;
+  }
+      /* модальное окно */
+  .popup, .popup_del {
+    font-family:Arial, Helvetica, sans-serif;
+    position: fixed;
+    z-index: 20;
+    width:100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    visibility: hidden;
+    overflow-y:hidden;
+    transition: opacity .2s ease;
+}
+.popup.active, .popup_del.active {
+    opacity: 1;
+    visibility: visible;
+}
+.popup_body, .popup_body_del {
+    min-height:90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid red; */
+    padding: 20px 10px;
+    margin-top: 80px;
+}
+.popup_content, .popup_content_del {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 20px auto; 
+    max-width: 800px;
+    min-height: 80px;
+    background-color: #ffffff;
+    color:black;
+    padding:30px;
+    box-shadow: 20px 20px 20px black;
+    border-radius: 5px;
+    user-select: none;
+    transition: all 0.3s ease-out;
+    transform: perspective(600px) translateY(-130%) rotateX(45deg);
+}
+.popup_content.active, .popup_content_del.active{
+    transform: perspective(600px) translateY(-20%) rotateX(0deg);
+} 
+.popup_close {
+    position: absolute;
+    /* border: 2px solid rgb(55, 17, 80); */
+    right: 10px;
+    top: 5px;
+    margin-top: 10px;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+}
+.popup_title {
+    /* border: 2px solid rgb(192, 221, 29); */
+    font-size: 20px;
+    font-weight: bold;
+    word-break: break-word;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    /* text-shadow: 5px 5px 5px rgb(66, 60, 60); */
+}
+.popup_text {
+  /* background-color: rgb(175, 171, 171); */
+    word-break: break-word;
+    /* margin: 0 auto; */
+}
+form.popup_text input, form.popup_text input[type=submit]{
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 15px;
+  border: solid #94a5f0;
+  /* border-color: #216d3a; */
+  margin-bottom: 5px;
+  padding: 7px 3px;
+  padding-left: 15px;
+  outline: none !important; 
+  outline-offset: 0;
+  transition: 0.4s all;
+  box-shadow: 4px 3px 3px;
+}
+form.popup_text input:hover{
+  /* font-size: 15px; */
+  box-shadow: 8px 8px 5px;
+}
+form.popup_text input[type=submit]{
+  width: 100%;
+  text-align: center;
+  border-radius: 10px 0px;
+  box-sizing: border-box;
+  margin-top: 15px;
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: #99c719;
+  cursor: pointer;
+}
+form.popup_text input[type=submit]:hover{
+  background-color: #ec7f25;
+}
+form.popup_text input[type=submit]:active{
+  background-color: #8f4508;
+}
+
+label{font-size: 15px;}
+.load_section{
+  display: flex;
+  justify-content:flex-start;
+  align-items: center;
+}
+#load_btn{
+  /* visibility: hidden;  */
+  display: none;
+  background-color: rgb(31, 117, 96);
+  /* color: #f0cc2e; */
+}
+
+.dialog_window{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dialog{
+  min-width: 50px;
+  min-height: 30px;
+  margin: 20px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #ffffff;
+  line-height: 30px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.yes{
+  background-color: #f01d1d;
+}
+.yes:hover{
+  background-color: #a11717;
+  transform: scale(1.1);
+}
+.yes:active{
+  background-color: #4d0d0d;
+}
+
+.no{
+  background-color: rgb(39, 196, 18);
+}
+.no:hover{
+  background-color: rgb(22, 141, 6);
+  transform: scale(1.1);
+}
+.no:active{
+  background-color: rgb(15, 75, 7);
+}
+#export_btn{
+  /* visibility: hidden; */
+  display: none;
+}
